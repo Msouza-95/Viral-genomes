@@ -1,22 +1,9 @@
 from Bio import SeqIO
 from Bio.Seq import Seq 
 from utils import findByFrame as findFrame
+from utils import DTO, findOrfs
 
-class Genome:
-    
-    def __init__(self) -> None:
-        self.id =0
-        self.gene = 0
-
-class ORF:
-    
-    def __init__(self,start , end) -> None:
-        self.start = start 
-        self.end = end
-
-
-
-g = Genome()
+g = DTO.Genome()
 
 genomes = []
 
@@ -33,23 +20,10 @@ seq = Seq("CCGATGCTTTTTCCGTTGGTTGTTCATCAGAATGGATCTGCTCTCTAATAAAAAACTGTTAGTCTACGT
 print(genomes[0].id)
 
 #frame 1
-frame1 = findFrame.findByCodons(0, seq)
+frame = findFrame.execute(seq)
  
-startCodons = frame1[0]
-stopCodons = frame1[1]
-
-#frame 2
-frame2 = findFrame.findByCodons(1, seq)
-startCodons.extend(frame2[0])
-stopCodons.extend(frame2[1])
-
-#frame 3
-frame3 = findFrame.findByCodons(2, seq)
-startCodons.extend(frame3[0])
-stopCodons.extend(frame3[1])
-
-#FRAME 1
-
+startCodons = frame[0]
+stopCodons = frame[1]
 
 # print(startCodons)
 
@@ -69,28 +43,9 @@ for i in range(0,len(stopCodons)):
 
 
 
-# parte localizar as possiveiz orfs 
-lenghtSeq = len(seq)
-lenghtStart = len(startCodons)
-lenghtStop = len(stopCodons)
-
-ofrs = []
-print(lenghtSeq)
-init = 0;
-for j in range (0,lenghtStop):
-    for k in range(init,lenghtStart):
-        if(startCodons[k].one < stopCodons[j].three):
-           ofr = ORF(startCodons[k].one,stopCodons[j].three)
-           ofrs.append(ofr)
-           print("achei ofs")
-           init += 1
-           print(init)
-           break
-           
-        
-        
-    
-            
-            
-for i in range(0, len(ofrs)):
-    print(ofrs[i].start, ofrs[i].end)
+#  localização das ORFs putativas
+ofrsPutativas = findOrfs.execute(startCodons,stopCodons)
+                      
+ #mostar ofs                      
+for i in range(0, len(ofrsPutativas)):
+    print(ofrsPutativas[i].start, ofrsPutativas[i].end)
