@@ -4,4 +4,3 @@ class ORF:
         self.start = start 
         self.end = end
 
-        

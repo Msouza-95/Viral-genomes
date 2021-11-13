@@ -12,3 +12,14 @@ class Position:
         self.one = one
         self.two =two 
         self.three = three 
+
+
+
+class ORF:
+    def __init__(self, id , frame, orf, start , end) -> (None):
+        self.id = id
+        self.frame = frame
+        self.orf = orf
+        self.start = start
+        self.end = end
+
