@@ -5,20 +5,10 @@ from utils import DTO
 def execute(seq, id):
     
     frames = []
-    for i in range(1, 3):
+    for i in range(0, 3):
         frame = findInFrame(i,seq, id)
         frames.append(frame)
      
-    # frame2 = findInFrame(1, seq,id)
-    # startCodonsFrame1.extend(frame2[0])
-    # stopCodonsFrame1.extend(frame2[1])
-
-    # #frame 3
-    # frame3 = findInFrame(2, seq,id)
-    # startCodonsFrame1.extend(frame3[0])
-    # stopCodonsFrame1.extend(frame3[1])
-    
-   
     return frames 
         
         
@@ -38,11 +28,11 @@ def findInFrame(frame, seq , id):
         test = Seq(seq[i+1]).join([Seq(seq[i]),Seq(seq[i+2])])
     
         if(test==ATG):
-            positionCodons = DTO.Position(i, i+1, i+2, id, frame)
+            positionCodons = DTO.Position(i, i+1, i+2, id, frame+1)
             startCodons.append(positionCodons)
             
         elif(test == TAA or test == TAG or test == TGA):
-            positionCodons = DTO.Position(i, i+1, i+2, id, frame)     
+            positionCodons = DTO.Position(i, i+1, i+2, id, frame+1)     
             stopCodons.append(positionCodons)
        
      
