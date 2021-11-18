@@ -2,16 +2,18 @@
 
 class Genome:
     
-    def __init__(self) -> None:
-        self.id =0
-        self.gene = 0
+    def __init__(self, id , gene) -> None:
+        self.id =id
+        self.gene = gene
 
 
 class Position:
-    def __init__(self, one , two, three) -> (None):
+    def __init__(self, one , two, three, id , frame) -> (None):
         self.one = one
         self.two =two 
-        self.three = three 
+        self.three = three
+        self.id = id
+        self.frame = frame
 
 
 
