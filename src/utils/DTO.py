@@ -24,4 +24,7 @@ class ORF:
         self.orf = orf
         self.start = start
         self.end = end
+        self.seq = 0 
 
+    def setSeq(self, seq):
+        self.seq = seq
