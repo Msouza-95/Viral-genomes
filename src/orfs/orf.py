@@ -5,7 +5,7 @@ from Bio.Seq import Seq
 
 def execute (genomes):
     
-    lenght = len(genomes)
+    lenght = 1#len(genomes)
     
     ofrsPutativas = []
     for i in range(0,lenght):

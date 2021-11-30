@@ -17,5 +17,6 @@ def execute(genome,orfs):
                      gene = genome[i].gene
                      cut = gene[start: end]
                      orfs[j][k].seq = cut
+                     
                     
     return orfs               

@@ -5,9 +5,9 @@ from orfs import UFM
 from orfs import segmentSeq
 from Bio.Seq import Seq
 
-
+pathGenoma = "Data/sequence_Dengue_virus1.fasta"
 # leitura dos dados dos genomas 
-genomes =read.execute()
+genomes =read.execute(pathGenoma )
 
 #buscar possiveis ofrs 
 ofrsPutativas = orf.execute(genomes)
@@ -16,7 +16,7 @@ ofrsPutativas = orf.execute(genomes)
 
 
 #gravar na csv 
-csv.writer(ofrsPutativas)   
+csv.orfsPotential(ofrsPutativas)   
     
 print("Etapa 1 Finalizou!")
 
@@ -25,11 +25,12 @@ ofrs = segmentSeq.execute(genomes, ofrsPutativas)
 
 #Universal Feature Method (UFM) – Método das Características Universais
 
-UFM.execute(ofrs)
+coding = UFM.execute(ofrs)
 
 print("Etapa 2 Finalizou!")
 # seq = Seq("ABCDEFGAJDKAJDK")
 
 # corte = seq[6:11]
-
-
+codingFilter = UFM.filterBySize(coding)
+csv.orfsCoding(codingFilter)
+print("Arquivo salvo no csv")
