@@ -5,10 +5,10 @@ from Bio.Seq import Seq
 
 def execute (genomes):
     
-    lenght = 1#len(genomes)
+    lenght = 8#len(genomes)
     
     ofrsPutativas = []
-    for i in range(0,lenght):
+    for i in range(7,lenght):
         seq = genomes[i].gene
         id = genomes[i].id
      
