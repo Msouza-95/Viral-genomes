@@ -1,9 +1,10 @@
 
 
 def execute(data):
+    
     coding = []
     line = len(data)
-    
+    print("metodo 1")
     for i in range(0,line):   
         col = len(data[i])
         for j in range(0, col):

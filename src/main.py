@@ -1,11 +1,12 @@
+
 from reading import read
 from Mycsv import csv 
 from orfs import orf
 from orfs import UFM
 from orfs import segmentSeq
-from Bio.Seq import Seq
 
-pathGenoma = "Data/sequence_Dengue_virus1.fasta"
+
+pathGenoma = "Data/sequence_SARS_Virus.fasta"
 # leitura dos dados dos genomas 
 genomes =read.execute(pathGenoma )
 
